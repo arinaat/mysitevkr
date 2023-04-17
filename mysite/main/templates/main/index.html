@@ -1,0 +1,102 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Design Laboratory{% endblock %}
+{% block content %}
+<div style = "grid-column-start: 1;
+                grid-column-end:15;">
+        <div>
+            <img src="{% static 'image/mainimg.png' %}">
+        </div>
+    </div>
+    <div style = "
+                grid-column-start: 5;
+                grid-column-end:11;
+                padding-top: clamp(20px, 25vw, 250px);
+                padding-bottom: clamp(5px, 25vw, 45px);">
+        <div style ="">
+                    <div style ="  border-top:3px solid #000000;"></div>
+        </div>
+    </div>
+    <div style = " grid-column-start: 4;
+                grid-column-end:12;
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;">
+        <div class = "textmain">
+                С появлением ИИ художникам стало легче выражать себя.
+            Многие существующие пакеты программного обеспечения для дизайнеров начинают включать некоторые элементарные ИИ,
+            помогающие автоматизировать простые повторяющиеся действия.<br /><br />
+            Данный проект собрал в себе популярные инструменты дизайна, которые могут успешно применить дизайнеры из разных областей.
+        </div>
+    </div>
+    <div style = "grid-column-start: 5;
+                grid-column-end:11;
+                padding-top: clamp(5px, 25vw, 45px);;
+                padding-bottom: clamp(20px, 25vw, 250px)">
+        <div>
+            <div style ="border-top:3px solid #000000;"></div>
+        </div>
+    </div>
+    <div style = " grid-column-start: 2;
+                grid-column-end:7;
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;">
+        <div class = "textmain">
+                Чтобы сгенерировать картинку, нужно просто написать запрос и нажать на кнопку сгенерировать.
+        </div>
+    </div>
+     <div style = " grid-column-start: 8;
+                grid-column-end:14;
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;">
+        <div >
+                <img src="{% static 'image/mainimg.png' %}">
+        </div>
+    </div>
+     <div style = " grid-column-start: 2;
+                grid-column-end:8;
+                padding-top: clamp(20px, 25vw, 150px);
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;">
+        <div >
+                <img src="{% static 'image/mainimg.png' %}">
+        </div>
+    </div>
+    <div style = " grid-column-start: 9;
+                grid-column-end:14;
+                padding-top: clamp(20px, 25vw, 150px);
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;">
+        <div class = "textmain">
+                Также можно выбрать дополнительные настройки. Подробнее ознакомиться как их использовать можно в разделе Помощь.
+        </div>
+    </div>
+
+     <div style = "grid-column-start: 5;
+                grid-column-end:11;
+                padding-top: clamp(20px, 25vw, 150px);">
+        <div>
+            <div style ="border-top:3px solid #000000;"></div>
+        </div>
+    </div>
+     <div style = " grid-column-start: 4;
+                grid-column-end:12;
+                padding-top: clamp(20px, 25vw, 50px);
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;">
+        <div class = "textmain">
+                Создайте самые креативные картинки!
+        </div>
+    </div>
+{% endblock %}

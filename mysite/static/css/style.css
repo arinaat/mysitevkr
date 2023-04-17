@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'CodeNext-Bold';
+    src: url('../fonts/CodeNext-Trial-Bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'CodeNext-SemiBold';
+    src: url('../fonts/CodeNext-Trial-SemiBold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'CodeNext-Regular';
+    src: url('../fonts/CodeNext-Trial-Regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'CodeNext-Light';
+    src: url('../fonts/CodeNext-Trial-Light.ttf') format("truetype");
+}
+
+body {
+  font-size: 40px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+[class^="box-"] {
+  display: grid;
+
+}
+
+.containermain {
+  display: grid;
+  column-gap: 30px;
+
+  grid-template-columns: repeat(14, 1fr);
+
+
+
+}
+
+.containergallery {
+  display: grid;
+  column-gap: 30px;
+
+  grid-template-columns: repeat(14, 1fr);
+
+
+
+}
+
+.box-1 {
+     grid-column-start: 2;
+     grid-column-end:8;
+
+     ;
+
+}
+.box-2 {
+     grid-column-start: 11;
+     grid-column-end: 14;
+
+     ;
+}
+
+.header1 {
+    font-family: CodeNext-Regular;
+    font-size: 16px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+a{
+font-family: CodeNext-Regular;
+position: relative;
+text-decoration: none;
+color: black;
+cursor: pointer;
+line-height: 1;
+}
+
+a:hover,
+a:focus{
+font-family: CodeNext-Bold;
+}
+a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+a:hover:after,
+a:focus:after {
+font-family: CodeNext-Bold;
+opacity: 1;
+transform: translate3d(0, 0.2em, 0);
+
+}
+
+
+
+
+.textmain{
+    font-family: CodeNext-Regular;
+    font-size:1.5vw;
+    font-size-adjust:auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: top;
+    align-items: center;
+}
+
+.galleryblock{
+border-width: 10px 1px 10px 1px;
+}
+
+
+.containerforms{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+       }
+
+
+.forms{
+    width: 370px;
+    height:400px;
+    font-family: CodeNext-Regular;
+    font-size: 22px;
+    border: 20px solid black;
+    background-color: white;
+    padding: 45px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+
+}
+
+.forms2{
+    width: 370px;
+    height:600px;
+    font-family: CodeNext-Regular;
+    font-size: 22px;
+    border: 20px solid black;
+    background-color: white;
+    padding: 45px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+
+}
+
+
+
+.input {
+  font-family: CodeNext-Light;
+  font-size: 20px;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: white;
+  outline: none;
+
+}
+
+.input:focus,
+.input:active{
+border-bottom: 3px solid black;
+}
+
+button{
+font-family: CodeNext-Regular;
+font-size: 20px;
+color: white;
+background-color: black;
+padding: 5px 10px;
+border: none;
+}
+
+button:focus,
+button:hover,
+button:active{
+background-color: #48494B;
+}
+
+.goback{
+font-family: CodeNext-Bold;
+font-size: 22px;
+}
+
+.gallery_all{
+font-family: CodeNext-Light;
+  font-size: clamp(5px, 3vw, 20px);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: clamp(5px, 25vw, 100px);
+
+
+}
+.gallery_block{
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+border: solid black;
+border-width: 18px 2px 18px 2px;
+padding: clamp(5px, 25vw, 30px);
+width: clamp(190px, 25vw, 365px);
+margin-top: clamp(10px, 25vw, 20px);
+margin-bottom: clamp(10px, 25vw, 20px);
+}

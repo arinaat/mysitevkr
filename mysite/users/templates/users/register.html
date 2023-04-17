@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+
+<section class ="containerforms">
+    <form class = "forms2" action="{% url 'register' %}" method = "post">
+        {% if form.errors %}
+        <p>{{ form.errors.error }}</p>
+        {% endif %}
+        <p style="font-family: CodeNext-Bold;">Регистрация</p>
+        {{ registration_form.username }}
+        {{ registration_form.email }}
+        {{ registration_form.password1 }}
+        {{ registration_form.password2 }}
+        {% csrf_token %}
+        <button type ="submit">Зарегистрироваться</button>
+    </form>
+</section>
+</body>
+</html>
