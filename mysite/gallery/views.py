@@ -49,10 +49,22 @@ def post(request):
                   {'postForm': postForm, 'formset': formset})
 
 
-def Gallery(request):
+def gallery(request):
     posts = Post.objects.all()
     images = Images.objects.all()
     return render(request, 'gallery/gallery.html', {"posts": posts, "images": images})
+
+@login_required
+def posts(request, post_id):
+    posts = get_object_or_404(Post, id=post_id)
+    user = request.user
+    if request.method == 'POST':
+        if posts.likes.filter(id=user.id).exists():
+            posts.likes.remove(user)
+        else:
+            posts.likes.add(user)
+        posts.save()
+    return HttpResponseRedirect(reverse('gallery'))
 
 
 # @login_required

@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'gallery/gallery.html' %}
+{% load static %}
+{% block title %}POSTS{% endblock %}
+{% block content %}
+<form style = " grid-column-start: 2;
+     grid-column-end:14; " >
+    <div class = "gallery_all">
+    {% for post in posts %}
+        <div class = "gallery_block">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between;font-family: CodeNext-Bold;">
+            <div>{{ post.user.username }}</div>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"><button type="submit">Like</button><h1>&nbsp</h1><div>{{ post.likes.count }}</div></div>
+                </form>
+            </div>
+            <div style = "display: flex; justify-content: center;">
+            <div style ="border-top:2px solid #000000; margin-top: clamp(2px, 25vw, 15px); width: 15vw; margin-bottom: clamp(2px, 25vw, 10px);"></div>
+            </div>
+                {% for image in images %}
 
-</body>
-</html>
+                    {% if post.id == image.post.id %}
+                        <img src = "{{ image.image.url }}" style="width: clamp(20px, 25vw, 300px); margin-top: clamp(2px, 25vw, 8px); margin-bottom: clamp(2px, 25vw, 8px);"/>
+                    {% endif %}
+                {% endfor %}
+            <div style = "display: flex; justify-content: center;">
+            <div style ="border-top:2px solid #000000; width: 15vw; margin-top: clamp(2px, 25vw, 8px); margin-bottom: clamp(2px, 25vw, 15px);"></div>
+            </div>
+                <div>{{ post.title }}</div>
+            </div>
+    {% endfor %}
+        </div>
+</form>

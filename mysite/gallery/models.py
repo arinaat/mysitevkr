@@ -10,11 +10,11 @@ class Post(models.Model):
     title = models.CharField(max_length=400)
     likes = models.ManyToManyField(User, related_name='post_likes')
 
-    # def get_absolute_url(self):
-    #     return reverse('gallery', args=[str(self.id)])
-    #
-    # def __str__(self):
-    #     return str(self.id)
+    def get_absolute_url(self):
+        return reverse('gallery', args=[str(self.id)])
+
+    def __str__(self):
+        return str(self.id)
 
 def get_image_filename(instance, filename):
     return 'post_images_{0}/{1}'.format(instance.post.id, filename)

@@ -25,7 +25,7 @@ from main.views import (
 )
 
 from gallery.views import (
-  Gallery, post,
+  gallery, post, posts
 
 
 )
@@ -39,8 +39,8 @@ from users.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home, name='home'),
-    path('gallery/', Gallery, name='gallery'),
-    # path('<uuid:post_id>', Likes, name='likes'),
+    path('gallery/', gallery, name='gallery'),
+    path('gallery/<int:post_id>', posts, name='post'),
     path('register/', registration_view, name='register'),
     path('logout/', logout_view, name='logout'),
     path('login/', login_view, name='login'),

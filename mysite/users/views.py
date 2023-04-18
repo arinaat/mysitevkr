@@ -25,7 +25,6 @@ def login_view(request):
         else:
             for field, errors in form.errors.items():
                 print('Field: {} Errors: {}'.format(field, ','.join(errors)))
-            return HttpResponse("<p>Вы не зашли</p>")
 
     else:
         form = UserLoginForm()

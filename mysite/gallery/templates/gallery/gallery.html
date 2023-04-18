@@ -5,12 +5,14 @@
 <form style = " grid-column-start: 2;
      grid-column-end:14; " >
     <div class = "gallery_all">
-    {% csrf_token %}
     {% for post in posts %}
         <div class = "gallery_block">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between;font-family: CodeNext-Bold;">
             <div>{{ post.user.username }}</div>
-                <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"><div>Likes</div><h1>&nbsp</h1><div>{{ post.likes.count }}</div></div>
+                <form method="POST" action="{% url 'post' post.id %}">
+                    {% csrf_token %}
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"><button type="submit">Like</button><h1>&nbsp</h1><div>{{ post.likes.count }}</div></div>
+                </form>
             </div>
             <div style = "display: flex; justify-content: center;">
             <div style ="border-top:2px solid #000000; margin-top: clamp(2px, 25vw, 15px); width: 15vw; margin-bottom: clamp(2px, 25vw, 10px);"></div>
