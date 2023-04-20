@@ -24,6 +24,12 @@
     src: url('../fonts/CodeNext-Trial-Light.ttf') format("truetype");
 }
 
+#like{
+}
+
+#likescount{
+}
+
 body {
   font-size: 40px;
   width: 100%;
@@ -219,6 +225,7 @@ background-color: #48494B;
 font-family: CodeNext-Bold;
 font-size: 22px;
 }
+
 
 .gallery_all{
 font-family: CodeNext-Light;

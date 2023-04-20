@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.forms import modelformset_factory
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
 
 from .forms import ImageForm, PostForm
@@ -54,26 +54,25 @@ def gallery(request):
     images = Images.objects.all()
     return render(request, 'gallery/gallery.html', {"posts": posts, "images": images})
 
-@login_required
-def posts(request, post_id):
+
+def like(request, post_id):
     posts = get_object_or_404(Post, id=post_id)
     user = request.user
-    if request.method == 'POST':
-        if posts.likes.filter(id=user.id).exists():
-            posts.likes.remove(user)
-        else:
-            posts.likes.add(user)
-        posts.save()
-    return HttpResponseRedirect(reverse('gallery'))
+    liked = False
+    if user.is_authenticated:
+        if request.method == 'POST':
+            if posts.likes.filter(id=user.id).exists():
+                posts.likes.remove(user)
+                liked = False
+            else:
+                posts.likes.add(user)
+                liked = True
+            posts.save()
+    data = {
+        "likes": liked,
+        "likes_count": posts.likes_count()
+            }
+    return JsonResponse(data)
 
 
-# @login_required
-# def Likes(request, post_id):
-#     post = get_object_or_404(Post, id=post_id)
-#     print(post)
-#     if post.likes.filter(id=request.user.id).exists():
-#         post.likes.remove(request.user)
-#     else:
-#         post.likes.add(request.user)
-#     post.save()
-#     return HttpResponseRedirect(reverse('gallery', args=[str(post.id)]))
+

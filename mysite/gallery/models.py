@@ -16,6 +16,10 @@ class Post(models.Model):
     def __str__(self):
         return str(self.id)
 
+    def likes_count(self):
+        return self.likes.count()
+
+
 def get_image_filename(instance, filename):
     return 'post_images_{0}/{1}'.format(instance.post.id, filename)
 

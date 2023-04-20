@@ -1,7 +1,36 @@
 {% extends 'main/layout.html' %}
 {% load static %}
+{% block script %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>{% endblock %}
 {% block title %}Gallery{% endblock %}
 {% block content %}
+<script>
+$(document).ready(function(event){
+$(document).on('click', '#like', function(event){
+    event.preventDefault()
+    var id_pr = $(this).attr("value")
+    link = "/gallery/" + Number(id_pr)
+    id_text = '#' + id_pr
+     $.ajax({
+       url: link,
+       type: 'POST',
+       data: {
+       'id': id_pr,
+       'csrfmiddlewaretoken': '{{ csrf_token }}',
+       },
+       dataType: 'json',
+       success: function(data){
+       console.log(data)
+       var NewLikes = data.likes_count
+       $(id_text).text(NewLikes);
+          },
+       error: function(response) {
+       console.error(response)
+        }
+      })
+})
+});
+</script>
 <form style = " grid-column-start: 2;
      grid-column-end:14; " >
     <div class = "gallery_all">
@@ -11,7 +40,7 @@
             <div>{{ post.user.username }}</div>
                 <form method="POST" action="{% url 'post' post.id %}">
                     {% csrf_token %}
-                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"><button type="submit">Like</button><h1>&nbsp</h1><div>{{ post.likes.count }}</div></div>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;"><button id ='like' value="{{ post.id }}" type="submit">Like</button><h1>&nbsp</h1><div><span id = "{{ post.id }}">{{ post.likes.count }}</span></div></div>
                 </form>
             </div>
             <div style = "display: flex; justify-content: center;">
