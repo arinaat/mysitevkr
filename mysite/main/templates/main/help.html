@@ -1,0 +1,56 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<div style = "grid-column-start: 3;
+                grid-column-end:13;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;">
+    <h1 style="padding-top: clamp(20px, 25vw, 150px);">Популярные вопросы</h1>
+    <h5 style="padding-top: clamp(25px, 25vw, 209px);">Как формулировать запросы для нейросети?</h5>
+    <div class = "textmain" style="padding-top: clamp(10px, 25vw, 50px);">
+    Необходимо тестировать разные комбинации слов в запросе, при этом стоит учитывать,
+    что некоторые слова в запросе могут по умолчанию сильнее менять изображение или смешивать его с объектом.
+    Другими словами, вы должны как можно точнее сформулировать главный объект и указать его взапросе.
+    Также следует избегать слов «не», «без», «исключая», «кроме» и подобных.
+    Нейросети воспринимают всё буквально и не замечают отрицательных частиц.
+        </div>
+   <div style = "grid-column-start: 5;
+                grid-column-end:11;
+                padding-top: clamp(10px, 25vw, 50px);">
+        <div>
+    <div style ="border-top:2px solid #000000;"></div>
+            </div>
+        </div>
+    <h5 style="padding-top: clamp(10px, 25vw, 50px);">Для чего нужны дополнительные параметры?</h5>
+    <div class = "textmain" style="padding-top: clamp(10px, 25vw, 50px);">
+    В большинстве нейросетей есть дополнительные параметры, которые могут улучшить конечный результат.
+    В каждой нейросети они разные. Например, можно выбрать размер генерируемого изображения.
+        </div>
+    <div style = "grid-column-start: 5;
+                grid-column-end:11;
+                padding-top: clamp(10px, 25vw, 50px);">
+        <div>
+    <div style ="border-top:2px solid #000000;"></div>
+            </div>
+        </div>
+    <h5 style="padding-top: clamp(10px, 25vw, 50px);">Вас не удовлетворяет результат?</h5>
+    <div class = "textmain" style="padding-top: clamp(10px, 25vw, 50px);">
+    Попробуйте сгенерировать картинки несколько раз.
+        При каждом новом запуске получаются новые изображение. Либо попробуйте изменить запрос.
+        </div>
+     <div style = "grid-column-start: 5;
+                grid-column-end:11;
+                padding-top: clamp(10px, 25vw, 50px);">
+        <div>
+    <div style ="border-top:2px solid #000000;"></div>
+            </div>
+        </div>
+    <h5 style="padding-top: clamp(10px, 25vw, 50px);">Можно ли ожидать больше инструментов?</h5>
+    <div class = "textmain" style="padding-top: clamp(10px, 25vw, 50px);">
+    Конечно! Мы работаем над этим.
+        </div>
+</div>
+{% endblock %}
+

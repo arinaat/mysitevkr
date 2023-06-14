@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-akjb10)ll)*#^58#y@%wfv&-i4!vwl+*wne48&zb2214a&22hg
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# AUTH_USER_MODEL = 'users.User'
 AUTH_USER_MODEL = 'users.User'
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'users',
     'gallery',
+    'tools',
 ]
 
 MIDDLEWARE = [

@@ -2,10 +2,15 @@ from django.contrib import auth
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+
+from gallery.models import Post, Images
+from .models import User
 from django.views import View
 from django.http import HttpResponse
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 
 
 def login_view(request):
@@ -22,20 +27,11 @@ def login_view(request):
             if user:
                 login(request, user)
                 return redirect("home")
-        else:
-            for field, errors in form.errors.items():
-                print('Field: {} Errors: {}'.format(field, ','.join(errors)))
 
     else:
         form = UserLoginForm()
     context['login_form'] = form
     return render(request, 'users/login.html', context)
-
-
-def logout_view(request):
-    logout(request)
-    return redirect('home')
-
 
 def registration_view(request):
     context = {}
@@ -54,3 +50,32 @@ def registration_view(request):
         form = UserRegistrationForm()
         context['registration_form'] = form
     return render(request, 'users/register.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+
+
+@login_required
+def profile(request):
+    context = {}
+    user = User.objects.get(email=request.user.email)
+    posts = Post.objects.filter(user=user.id)
+    # id__in = posts.id
+    images = Images.objects.all()
+    # images = Images.objects.filter(id__in = posts)
+    if request.POST:
+        form = UserProfileForm(data=request.POST, instance=user, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('profile'))
+        else:
+            print(form.errors)
+    else:
+        form = UserProfileForm(instance=user)
+    context['profile'] = form
+    context['img'] = user.image.url
+    context['posts'] = posts
+    context['images'] = images
+    return render(request, 'users/profile.html', context)

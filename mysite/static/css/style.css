@@ -1,7 +1,16 @@
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+
+
+body{
+background-color: #F8F8F8;
 }
 
 @font-face {
@@ -24,11 +33,48 @@
     src: url('../fonts/CodeNext-Trial-Light.ttf') format("truetype");
 }
 
-#like{
+@font-face {
+    font-family: 'Kamerik105Cyrillic-Book';
+    src: url('../fonts/Kamerik105Cyrillic-Book.ttf') format("truetype");
 }
 
-#likescount{
+@font-face {
+    font-family: 'Kamerik105Cyrillic-Light';
+    src: url('../fonts/Kamerik105Cyrillic-Light.ttf') format("truetype");
 }
+
+@font-face {
+    font-family: 'Kamerik105Cyrillic-Bold';
+    src: url('../fonts/Kamerik105Cyrillic-Bold.ttf') format("truetype");
+}
+
+
+h1{
+padding-top: clamp(20px, 25vw, 150px);
+font-family: CodeNext-Bold;
+font-size:1vw;
+font-size-adjust:auto;
+text-align: center;
+}
+
+h5{
+font-family: CodeNext-SemiBold;
+font-size-adjust:auto;
+text-align: center;
+}
+
+.like_button {
+background-color: #F8F8F8;
+border: none;
+}
+
+
+.like_button:focus,
+.like_button:hover,
+.like_button:active{
+background-color: #F8F8F8;
+}
+
 
 body {
   font-size: 40px;
@@ -44,46 +90,38 @@ img {
 
 [class^="box-"] {
   display: grid;
-
-}
-
-.containermain {
-  display: grid;
-  column-gap: 30px;
-
-  grid-template-columns: repeat(14, 1fr);
-
-
-
 }
 
 .containergallery {
   display: grid;
   column-gap: 30px;
-
   grid-template-columns: repeat(14, 1fr);
-
-
-
 }
+
+.containermain {
+  display: grid;
+  column-gap: 30px;
+  grid-template-columns: repeat(14, 1fr);
+}
+
 
 .box-1 {
      grid-column-start: 2;
      grid-column-end:8;
-
-     ;
-
 }
+
 .box-2 {
      grid-column-start: 11;
      grid-column-end: 14;
-
-     ;
 }
+
+
 
 .header1 {
     font-family: CodeNext-Regular;
-    font-size: 16px;
+    font-size: 1.15vw;
+    color: white;
+    background-color: black;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -92,34 +130,46 @@ img {
     padding-bottom: 35px;
 }
 
+li {
+  list-style-type: none;
+  /* Убираем маркеры */
+}
+
 a{
+font-family: CodeNext-Bold;
+text-decoration: none;
+color: white;
+}
+
+
+.active{
+font-family: CodeNext-Bold;
+border-bottom: 2px solid white;
+padding-bottom: 0.11em;
+}
+
+.not_active{
 font-family: CodeNext-Regular;
 position: relative;
-text-decoration: none;
-color: black;
+color: white;
 cursor: pointer;
 line-height: 1;
 }
 
-a:hover,
-a:focus{
-font-family: CodeNext-Bold;
-}
-a:after {
+.not_active:after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 0.1em;
-  background-color: black;
+  background-color: #F8F8F8;
   opacity: 0;
   transition: opacity 300ms, transform 300ms;
 }
 
-a:hover:after,
-a:focus:after {
-font-family: CodeNext-Bold;
+.not_active:hover:after,
+.not_active:focus:after {
 opacity: 1;
 transform: translate3d(0, 0.2em, 0);
 
@@ -133,10 +183,6 @@ transform: translate3d(0, 0.2em, 0);
     font-size:1.5vw;
     font-size-adjust:auto;
     text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: top;
-    align-items: center;
 }
 
 .galleryblock{
@@ -145,6 +191,7 @@ border-width: 10px 1px 10px 1px;
 
 
 .containerforms{
+        background-color: #F8F8F8;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -154,13 +201,14 @@ border-width: 10px 1px 10px 1px;
 
 
 .forms{
-    width: 370px;
-    height:400px;
-    font-family: CodeNext-Regular;
+
+    width: 330px;
+    height:330px;
+    font-family: Kamerik105Cyrillic-Book;
     font-size: 22px;
-    border: 20px solid black;
-    background-color: white;
-    padding: 45px 40px;
+    border: 15px solid black;
+    background-color: #F8F8F8;
+    padding: 40px 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -172,13 +220,13 @@ border-width: 10px 1px 10px 1px;
 }
 
 .forms2{
-    width: 370px;
-    height:600px;
-    font-family: CodeNext-Regular;
+    width: 330px;
+    height:460px;
+    font-family: Kamerik105Cyrillic-Book;
     font-size: 22px;
-    border: 20px solid black;
-    background-color: white;
-    padding: 45px 40px;
+    border: 15px solid black;
+    background-color: #F8F8F8;
+    padding: 40px 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -192,11 +240,11 @@ border-width: 10px 1px 10px 1px;
 
 
 .input {
-  font-family: CodeNext-Light;
-  font-size: 20px;
+  font-family: Kamerik105Cyrillic-Light;
+  font-size: 18px;
   border: none;
   border-bottom: 2px solid black;
-  background-color: white;
+  background-color: #F8F8F8;
   outline: none;
 
 }
@@ -227,26 +275,42 @@ font-size: 22px;
 }
 
 
+
+
 .gallery_all{
 font-family: CodeNext-Light;
-  font-size: clamp(5px, 3vw, 20px);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  font-size: clamp(5px, 25vw, 20px);
+  overflow: hidden;
+   -webkit-column-count:3;
+     -moz-column-count: 3;
+          column-count: 3;
   margin-top: clamp(5px, 25vw, 100px);
 
 
 }
 .gallery_block{
-display: flex;
+-webkit-column-break-inside: avoid;
+page-break-inside: avoid;
+break-inside: avoid;
+align-self: start;
+display: inline-flex;
 flex-wrap: wrap;
 flex-direction: column;
+flex: auto;
 border: solid black;
 border-width: 18px 2px 18px 2px;
-padding: clamp(5px, 25vw, 30px);
-width: clamp(190px, 25vw, 365px);
-margin-top: clamp(10px, 25vw, 20px);
-margin-bottom: clamp(10px, 25vw, 20px);
+padding: clamp(5px, 25vw, 24px);
+margin-top: clamp(10px, 25vw, 10px);
+margin-bottom: clamp(10px, 25vw, 10px);
 }
+
+
+
+.flex_space_between{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;}
+
+.flex_space_center{
+display: flex;
+justify-content: center;}

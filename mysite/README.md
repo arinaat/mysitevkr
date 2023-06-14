@@ -9,4 +9,4 @@
 <div><code> ./python manage.py runserver </code></div>
 
 <p>Я почитала, что должно быть в этом файле. Полное описание будет позже</p>
-
+<code>pip install "tensorflow>=2.0.0"</code>

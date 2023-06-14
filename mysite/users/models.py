@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, email, username, password=None):  # создаем пользователя, встроенная функция
+    def create_user(self, email, username, password=None):
         if not email:
             raise ValueError('Нет Email')
         if not username:
@@ -31,6 +31,7 @@ class MyAccountManager(BaseUserManager):
         return user
 
 
+
 # Create your models here.
 class User(AbstractBaseUser):
     first_name = models.CharField(max_length=30)
@@ -40,7 +41,7 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     about_user = models.CharField(max_length=255)
-    #image = models.ImageField(upload_to='users_images', null=True, blank=True)
+    image = models.ImageField(upload_to='profile_photo', null=True, blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

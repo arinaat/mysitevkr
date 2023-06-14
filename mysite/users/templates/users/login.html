@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load static %}
 <html lang="ru">
@@ -6,19 +7,21 @@
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 </head>
-<body>
+<body style="background-color: #F8F8F8;">
 <button onclick="history.back();" style="margin: 10px">Назад</button>
 
 
 
-<section class ="containerforms">
-    <form class = "forms" action ="{% url 'login' %}" method = "post">
-        <p style="font-family: CodeNext-Bold;">Вход</p>
+<section class ="containerforms" style="background-color: #F8F8F8;">
+    <form class = "forms" style = "Kamerik105Cyrillic-Bold;" action ="{% url 'login' %}" method = "post">
+        <p style="font-family: Kamerik105Cyrillic-Bold; font-size: 20px;">Вход</p>
         {{ login_form.email }}
         {{ login_form.password }}
         {% csrf_token %}
-        <button type ="submit">Войти</button>
+        <button style="width:210px; font-size: 16px; font-family: Kamerik105Cyrillic-Bold;" type ="submit">Войти</button>
     </form>
 </section>
 </body>
 </html>
+
+

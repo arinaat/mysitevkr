@@ -1,17 +1,15 @@
 from django.contrib.auth import get_user_model, authenticate
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from users.models import User
 from django import forms
-#User = get_user_model()
+# User = get_user_model()
 
 
-#class UserCreationForm(UserCreationForm):
-    #class Meta(UserCreationForm.Meta):
-        #model = User
+# class UserCreationForm(UserCreationForm):
+# class Meta(UserCreationForm.Meta):
+# model = User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import UpdateView
-
-
+from django.views.generic import UpdateView, FormView
 
 
 class UserLoginForm(forms.ModelForm):
@@ -36,7 +34,7 @@ class UserRegistrationForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'input', 'placeholder': 'Введите логин'}), max_length=30)
     email = forms.CharField(widget=forms.EmailInput(attrs={
-        'class': 'input', 'placeholder': 'Введите email'}),  max_length=60)
+        'class': 'input', 'placeholder': 'Введите email'}), max_length=60)
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': 'input', 'placeholder': 'Введите пароль'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
@@ -47,17 +45,35 @@ class UserRegistrationForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
-class UserProfileForm(UserCreationForm):
-    image = forms.ImageField(widget=forms.FileInput())
-    first_name = forms.CharField(max_length=30)
+# class SomeView(FormView):
+#
+#     def get_form_kwargs(self):
+#         kwargs = super(SomeView, self).get_form_kwargs()
+#         kwargs['request'] = self.request
+#         return kwargs
+
+class UserProfileForm(forms.ModelForm):
+    image = forms.ImageField(widget=forms.FileInput(), required=False)
+    first_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'input'}), max_length=30)
     username = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'input', 'placeholder': 'Введите логин'}), max_length=30)
+        'class': 'input', 'readonly': True}), max_length=30)
     email = forms.EmailField(widget=forms.EmailInput(attrs={
-        'class': 'input', 'placeholder': 'Введите email'}),  max_length=60)
+        'class': 'input', 'readonly': True}), max_length=60)
     about_user = forms.CharField(max_length=255)
 
     class Meta:
         model = User
-        fields = ('image', 'first_name', 'username', 'email', 'about_user')
+        fields = ('first_name', 'username', 'email', 'about_user', 'image')
 
-
+    # def __init__(self, *args, **kwargs):
+    #     self.request = kwargs.pop("intanse")
+    #     super(UserProfileForm, self).__init__(*args, **kwargs)
+    #     user = kwargs.pop('data')
+    #     print(user)
+    #     print(user['username'])
+    #     self.username = user['username']
+    #     self.first_name = user['first_name']
+    #     self.email = user['email']
+    #     self.about_user = user['about_user']
+    #     self.password = user['csrfmiddlewaretoken']

@@ -16,7 +16,7 @@ from django.views.generic import RedirectView
 @login_required
 def post(request):
     ImageFormSet = modelformset_factory(Images,
-                                        form=ImageForm, extra=3)
+                                        form=ImageForm, extra=2)
     # 'extra' means the number of photos that you can upload   ^
     if request.method == 'POST':
 
@@ -75,4 +75,11 @@ def like(request, post_id):
     return JsonResponse(data)
 
 
-
+def search(request):
+    print(request.data)
+    posts = Post.objects.filter(title__icontains=request.data)
+    images = Images.objects.all()
+    data = {
+        "filter": posts
+    }
+    return render(request, 'gallery/gallery.html', {"posts": posts, "images": images})

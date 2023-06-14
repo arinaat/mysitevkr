@@ -21,11 +21,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from main.views import (
-  Home,
+  Home, Help
 )
 
 from gallery.views import (
-  gallery, post, like
+  gallery,
+  post,
+  like,
+  search
 
 
 )
@@ -34,6 +37,11 @@ from users.views import (
   login_view,
   registration_view,
   logout_view,
+  profile,
+)
+
+from tools.views import (
+    tool1,
 )
 
 urlpatterns = [
@@ -41,10 +49,15 @@ urlpatterns = [
     path('', Home, name='home'),
     path('gallery/', gallery, name='gallery'),
     path('gallery/<int:post_id>', like, name='post'),
+    path('gallery/s', search, name='search'),
     path('register/', registration_view, name='register'),
-    path('logout/', logout_view, name='logout'),
     path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
     path('upload/', post, name='upload'),
+    path('help/', Help, name='help'),
+    path('style_transfer/', tool1, name='tool1'),
+    path('profile/', profile, name='profile'),
+    # path('inst/', Help, name='inst')
     # re_path(r'^(?P<slug>[\w-]+)/like/$', PostLikeRedirect.as_view(), name='like')
 ]
 

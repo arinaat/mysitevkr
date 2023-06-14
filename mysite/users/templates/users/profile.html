@@ -1,0 +1,51 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block script %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>{% endblock %}
+{% block title %}Lk{% endblock %}
+{% block content %}
+    <form class = "forms" style = "Kamerik105Cyrillic-Bold;" action ="{% url 'profile' %}" method = "post" enctype="multipart/form-data">
+        <img src="{{ img }}">
+        {{ profile.image }}
+        {{ profile.first_name }}
+        {{ profile.username }}
+        {{ profile.email }}
+        {{ profile.about_user }}
+        {% csrf_token %}
+        <button style="width:210px; font-size: 16px; font-family: Kamerik105Cyrillic-Bold;" type ="submit">Сохранить</button>
+    </form>
+<form style = " grid-column-start: 2;
+     grid-column-end:14; " >
+    <div class = "gallery_all">
+    {% for post in posts %}
+        <div class = "gallery_block">
+            <div class = "flex_space_between" style=" font-family: CodeNext-Bold;">
+            <div>{{ post.user.username }}</div>
+                <form method="POST" action="{% url 'post' post.id %}">
+                    <div class = "flex_space_between"><div>
+                        <span id = "{{ post.id }}">{{ post.likes.count }}</span>
+                    </div>
+                        <div><button id ='like' class="like_button" value="{{ post.id }}" type="submit"><img src="{% static 'image/like1.png' %}" style="width: clamp(10px, 25vw, 35px)" >
+                        </button></div>
+                    </div>
+                </form>
+            </div>
+            <div class = "flex_space_center">
+            <div style ="border-top:2px solid #000000; margin-top: clamp(2px, 25vw, 15px); width: 15vw; margin-bottom: clamp(2px, 25vw, 10px);"></div>
+            </div>
+                {% for image in images %}
+
+                    {% if post.id == image.post.id %}
+                        <img src = "{{ image.image.url }}" style="width: clamp(20px, 25vw, 356px); margin-top: clamp(2px, 25vw, 8px); margin-bottom: clamp(2px, 25vw, 8px);"/>
+                    {% endif %}
+                {% endfor %}
+            <div style = class = "flex_space_center">
+            <div style ="border-top:2px solid #000000; width: 15vw; margin-top: clamp(2px, 25vw, 8px); margin-bottom: clamp(2px, 25vw, 15px);"></div>
+            </div>
+                <div>{{ post.title }}</div>
+            </div>
+    {% endfor %}
+        </div>
+</form>
+
+{% endblock %}
