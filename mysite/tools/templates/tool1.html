@@ -38,7 +38,6 @@ $(document).on('click', '#like', function(event){
 
 
 <form enctype="multipart/form-data" method="post" action="http://127.0.0.1:8080/proba/">
-   <p>Загрузите ваши фотографии на сервер</p>
    <input type="file" id="content_image" name="uploaded_file1">
    <input type="file" id="style_image" name="uploaded_file2">
     {% csrf_token %}
