@@ -44,6 +44,11 @@ background-color: #F8F8F8;
 }
 
 @font-face {
+    font-family: 'Kamerik105Cyrillic-Heavy';
+    src: url('../fonts/Kamerik105Cyrillic-Heavy.ttf') format("truetype");
+}
+
+@font-face {
     font-family: 'Kamerik105Cyrillic-Bold';
     src: url('../fonts/Kamerik105Cyrillic-Bold.ttf') format("truetype");
 }
@@ -51,8 +56,8 @@ background-color: #F8F8F8;
 
 h1{
 padding-top: clamp(20px, 25vw, 150px);
-font-family: CodeNext-Bold;
-font-size:1vw;
+font-family: Kamerik105Cyrillic-Bold;
+font-size: 1.06vw;
 font-size-adjust:auto;
 text-align: center;
 }
@@ -118,8 +123,8 @@ img {
 
 
 .header1 {
-    font-family: CodeNext-Regular;
-    font-size: 1.15vw;
+    font-family: Kamerik105Cyrillic-Book;
+    font-size: 1.06vw;
     color: white;
     background-color: black;
     align-items: center;
@@ -136,20 +141,20 @@ li {
 }
 
 a{
-font-family: CodeNext-Bold;
+font-family: Kamerik105Cyrillic-Bold;
 text-decoration: none;
 color: white;
 }
 
 
 .active{
-font-family: CodeNext-Bold;
+font-family: Kamerik105Cyrillic-Bold;
 border-bottom: 2px solid white;
 padding-bottom: 0.11em;
 }
 
 .not_active{
-font-family: CodeNext-Regular;
+font-family: Kamerik105Cyrillic-Book;
 position: relative;
 color: white;
 cursor: pointer;
@@ -179,10 +184,11 @@ transform: translate3d(0, 0.2em, 0);
 
 
 .textmain{
-    font-family: CodeNext-Regular;
-    font-size:1.5vw;
+    font-family: Kamerik105Cyrillic-Book;
+    font-size:1.06vw;
     font-size-adjust:auto;
     text-align: center;
+    line-height: 200%;
 }
 
 .galleryblock{
@@ -241,7 +247,7 @@ border-width: 10px 1px 10px 1px;
 
 .input {
   font-family: Kamerik105Cyrillic-Light;
-  font-size: 18px;
+  font-size: 1.272vw;
   border: none;
   border-bottom: 2px solid black;
   background-color: #F8F8F8;
@@ -254,8 +260,41 @@ border-width: 10px 1px 10px 1px;
 border-bottom: 3px solid black;
 }
 
+.input2 {
+  font-family: Kamerik105Cyrillic-Light;
+  font-size: 1.272vw;
+  width: 500px;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: #F8F8F8;
+  outline: none;
+
+}
+
+.input2:focus,
+.input2:active{
+border-bottom: 3px solid black;
+}
+
+.input3 {
+  font-family: Kamerik105Cyrillic-Light;
+  font-size: 1.272vw;
+  width: 500px;
+  height: 100px;
+  border: 2px solid black;
+  background-color: #F8F8F8;
+  resize: none;
+
+
+}
+
+.input3:focus,
+.input3:active{
+border: 3px solid black;
+}
+
 button{
-font-family: CodeNext-Regular;
+font-family: Kamerik105Cyrillic-Book;
 font-size: 20px;
 color: white;
 background-color: black;
@@ -278,8 +317,9 @@ font-size: 22px;
 
 
 .gallery_all{
-font-family: CodeNext-Light;
-  font-size: clamp(5px, 25vw, 20px);
+    font-family: Kamerik105Cyrillic-Book;
+    line-height: 165%;
+    font-size:1.06vw;
   overflow: hidden;
    -webkit-column-count:3;
      -moz-column-count: 3;
@@ -298,6 +338,7 @@ flex-wrap: wrap;
 flex-direction: column;
 flex: auto;
 border: solid black;
+overflow: auto;
 border-width: 18px 2px 18px 2px;
 padding: clamp(5px, 25vw, 24px);
 margin-top: clamp(10px, 25vw, 10px);
@@ -314,3 +355,98 @@ justify-content: space-between;}
 .flex_space_center{
 display: flex;
 justify-content: center;}
+
+
+}
+
+.button_main{
+font-family: Kamerik105Cyrillic-Bold;
+font-size: 0.92vw;
+background: #000000;
+border: 3.4px solid #F8F8F8;
+padding: 11px 20px;
+
+}
+
+.button_main:hover{
+background: #F8F8F8;
+border: 3.4px solid #000000;
+}
+
+.profile_form1{
+background-color: black;
+}
+
+.profile_form2{
+background-color: #F8F8F8;
+border: 8px solid black;
+}
+
+.button_profile input[type="file"]{
+display: none;
+}
+
+.button_profile{
+position: relative;
+overflow: hidden;
+outline: none;
+text-decoration: none;
+width: 114px;
+height 100px;
+border: none;
+background-color: #F8F8F8;
+}
+
+#file-input{
+display: none;
+}
+
+#proba label{
+font-family: Kamerik105Cyrillic-Bold;
+color: black;
+font-size: 1.1vw;
+padding: 6px 11px;
+background-color: #F8F8F8;
+}
+
+.accordion{
+margin-top: 100px;
+}
+
+.accordion-item{
+margin-bottom: 20px;
+}
+
+.accordion-item--active .accordion-item__content{
+display: block;
+}
+
+.accordion-item--active .accordion-item__trigger{
+border: none;
+}
+
+.accordion-item__trigger {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+padding-top: clamp(10px, 25vw, 18px);
+font-family: Kamerik105Cyrillic-Bold;
+font-size: 1.484vw;
+font-size-adjust:auto;
+text-align: left;
+
+}
+
+.accordion-item__content{
+padding-top: clamp(10px, 25vw, 25px);
+font-family: Kamerik105Cyrillic-Book;
+font-size-adjust:auto;
+font-size: 1.06vw;
+text-align: left;
+line-height: 200%;
+display: none;
+
+}
+
+.tr{
+}

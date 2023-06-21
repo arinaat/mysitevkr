@@ -52,6 +52,13 @@ def post(request):
 def gallery(request):
     posts = Post.objects.all()
     images = Images.objects.all()
+    # post = get_object_or_404(Post, id=request.user.id)
+    # print(post)
+    # print(request.user.id)
+    # if post.likes.filter(id=request.user.id).exists():
+    #     liked = False
+    # else:
+    #     liked = True
     return render(request, 'gallery/gallery.html', {"posts": posts, "images": images})
 
 
@@ -76,10 +83,20 @@ def like(request, post_id):
 
 
 def search(request):
-    print(request.data)
-    posts = Post.objects.filter(title__icontains=request.data)
+    print(request.GET)
+    print(request.GET.get('q'))
+    posts = Post.objects.filter(title__icontains=request.GET.get('q'))
     images = Images.objects.all()
+
     data = {
         "filter": posts
     }
     return render(request, 'gallery/gallery.html', {"posts": posts, "images": images})
+
+# def search(request):
+#     if request.is_ajax():
+#         q = request.GET.get('term', '')
+#         results = []
+#         if len(q) > 2:
+#             results = list(Book.objects.filter(title__istartswith=q).values_list(Lower('title'), flat=True))
+#         return JsonResponse(results, safe=False)

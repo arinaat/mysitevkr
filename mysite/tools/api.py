@@ -10,36 +10,36 @@ from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from main import style_transfer
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
+origins = [
+    "http://127.0.0.1:8000",
+]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 templates = Jinja2Templates(directory="templates")
-
-
 
 @app.get("/proba", response_class=HTMLResponse)
 def form(request: Request):
     return templates.TemplateResponse("tool1.html", {"request": request})
 
-
-@app.post("/proba", response_class=HTMLResponse)
-def form(request: Request, uploaded_file1: UploadFile = File(...), uploaded_file2: UploadFile = File(...)):
-    # print('encode')
-    # print(uploaded_file1.file.read())
-    # print('decode')
-    # print(base64.b64decode(uploaded_file1.file.read()))
-    a = uploaded_file1.filename
-    b = uploaded_file2.filename
-    print(a)
-    # b = uploaded_file2.file.read().decode("iso-8859-1").encode("utf-8")
-    # a = (base64.b64decode(uploaded_file1.file.read())).decode('utf-8')
-    # b = (base64.b64decode(uploaded_file2.file.read())).decode('utf-8')
-    # a = uploaded_file1.file.read().decode('base64')
-    # b = uploaded_file2.file.read().decode('base64')
-    img = style_transfer(a, b)
-
-    return Response(content=img, media_type="image/png")
+@app.post("/proba")
+def form(request: Request, uploaded_file1: UploadFile, uploaded_file2: UploadFile):
+    content_image = uploaded_file1.file.read()
+    style_image = uploaded_file2.file.read()
+    img2 = style_transfer(content_image, style_image)
+    a = base64.b64encode((img2.file.read()).encode("utf-8"))  # bytes
+    data = {a}
+    return JSONResponse(data)
+    # return Response(content=content_image, media_type="image/png")
 
 
 if __name__ == '__api__':

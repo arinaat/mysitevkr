@@ -53,14 +53,15 @@ class UserRegistrationForm(UserCreationForm):
 #         return kwargs
 
 class UserProfileForm(forms.ModelForm):
-    image = forms.ImageField(widget=forms.FileInput(), required=False)
+    image = forms.ImageField(widget=forms.FileInput(attrs={ 'id': 'file-input'}), required=False)
     first_name = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'input'}), max_length=30)
+        'class': 'input2'}), max_length=30)
     username = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'input', 'readonly': True}), max_length=30)
+        'class': 'input2', 'readonly': True}), max_length=30)
     email = forms.EmailField(widget=forms.EmailInput(attrs={
-        'class': 'input', 'readonly': True}), max_length=60)
-    about_user = forms.CharField(max_length=255)
+        'class': 'input2', 'readonly': True}), max_length=60)
+    about_user = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'input3', 'resizable': 'false'}), max_length=255)
 
     class Meta:
         model = User

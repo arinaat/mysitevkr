@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<div style="display: flex; grid-column-start:5; grid-column-end:10;">
+    <div style=" font-family: Kamerik105Cyrillic-Bold; font-size: 3vw;
+    padding-bottom: 6px; border-bottom: 4px solid #000000; margin-top: 160px; margin-left: 150px;">Инструменты</div>
+    </div>
+<div style="grid-column-start:2; grid-column-end:7; margin-top: 100px">
+    <img src="{% static 'image/tools_style_transfer.png' %}">
+</div>
+
+<div style="grid-column-start:8; grid-column-end:11; margin-top: 95px">
+    <div style="font-family: Kamerik105Cyrillic-Bold; font-size: 1.855vw;">Перенос стиля </div>
+</div>
+<div></div>
+    <div style="grid-column-start:8; grid-column-end:14; margin-top: -280px">
+    <div class="textmain" style="text-align: left">Нейронный перенос стиля — это метод оптимизации,
+        используемый для смешивания двух изображений — изображения содержимого и эталонного
+        изображения стиля (например, произведения известного художника),
+        чтобы полученное изображение выглядело как изображение содержимого,
+        но нарисованное в стиле эталонного изображения стиля. </div>
+</div>
+<div style="grid-column-start:8; grid-column-end:10; margin-top: -55px">
+    <form action="{% url 'tool1' %}">
+    <button type="submit"  >Использовать</button>
+</form>
+</div>
+
+
+{% endblock %}

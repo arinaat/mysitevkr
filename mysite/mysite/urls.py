@@ -42,6 +42,7 @@ from users.views import (
 
 from tools.views import (
     tool1,
+    tools
 )
 
 urlpatterns = [
@@ -56,6 +57,7 @@ urlpatterns = [
     path('upload/', post, name='upload'),
     path('help/', Help, name='help'),
     path('style_transfer/', tool1, name='tool1'),
+    path('tools/', tools, name='tools'),
     path('profile/', profile, name='profile'),
     # path('inst/', Help, name='inst')
     # re_path(r'^(?P<slug>[\w-]+)/like/$', PostLikeRedirect.as_view(), name='like')

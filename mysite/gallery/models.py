@@ -9,6 +9,7 @@ class Post(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=400)
     likes = models.ManyToManyField(User, related_name='post_likes')
+    liked = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse('gallery', args=[str(self.id)])

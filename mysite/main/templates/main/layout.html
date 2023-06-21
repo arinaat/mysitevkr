@@ -21,7 +21,8 @@
         <div class ="header1">
             {% url 'home' as home_url %}
             <li><a class="{% if request.get_full_path == home_url %}active{% else %}not_active{% endif %}" href = "{% url 'home' %}">Главная</a></li>
-            <li>Инструменты</li>
+            {% url 'tools' as tools_url %}
+            <li><a class="{% if request.get_full_path == tools_url %}active{% else %}not_active{% endif %}" href = "{% url 'tools' %}">Инструменты</a></li>
             {% url 'gallery' as gallery_url %}
             <li><a class="{% if request.get_full_path == gallery_url %}active{% else %}not_active{% endif %}" href = "{% url 'gallery' %}">Галерея</a></li>
             {% url 'help' as help_url %}
@@ -30,12 +31,12 @@
     </div>
     <div class="box-2">
         <div class ="header1">
-            <div >
+            <div style="align: center;">
                 {% if user.is_authenticated %}
-                    <a class="not_active" href = "{% url 'logout' %}">Выйти</a> |
-                    <a class="not_active"href = "{% url 'upload' %}">Загрузить</a>
+                    <a class="not_active" href = "{% url 'logout' %}">Выйти</a> /
+                    <a class="not_active"href = "{% url 'profile' %}">Профиль</a>
                 {% else %}
-                    <a class="not_active" href = "{% url 'login' %}">Войти</a> |
+                    <a class="not_active" href = "{% url 'login' %}">Войти</a> /
                     <a class="not_active" href = "{% url 'register' %}">Зарегистрироваться</a>
                 {% endif %}
             </div>

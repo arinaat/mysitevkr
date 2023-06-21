@@ -5,15 +5,16 @@ import IPython.display as display
 import PIL.Image
 import matplotlib as mpl
 import numpy as np
+import torch
 import opener as opener
 import tensorflow as tf
-from numpy import unicode
+#from numpy import unicode
 
 
 def style_transfer(content_image1, style_image1):
     # Load compressed models from tensorflow_hub
-    os.environ['TFHUB_MODEL_LOAD_FORMAT'] = 'COMPRESSED'
-
+    os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+    print(torch.cuda.is_available())
     mpl.rcParams['figure.figsize'] = (12, 12)
     mpl.rcParams['axes.grid'] = False
 
@@ -29,10 +30,11 @@ def style_transfer(content_image1, style_image1):
     # СЮДА ПЕРЕДАЕМ ПАРАМЕТРЫ
 
     # СЮДА ПЕРЕДАЕМ КАРТИНКУ
-    def load_img(path_to_img):
+    def load_img(img):
       max_dim = 512
       # img = tf.compat.as_str_any(path_to_img, encoding='ISO-8859-1')
-      img = tf.io.read_file(path_to_img)
+      #img = tf.io.read_file(path_to_img)
+      #img = tf.image.decode_image(img, channels=3)
       img = tf.image.decode_image(img, channels=3)
       img = tf.image.convert_image_dtype(img, tf.float32)
 
@@ -230,4 +232,5 @@ def style_transfer(content_image1, style_image1):
 
     file_name = 'stylized-image.png'
     tensor_to_image(image).save(file_name)
-    return tensor_to_image(image)
+    a = tensor_to_image(image).save(file_name)
+    return a

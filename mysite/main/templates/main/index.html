@@ -4,99 +4,75 @@
 {% block content %}
 <div style = "grid-column-start: 1;
                 grid-column-end:15;">
-        <div>
-            <img src="{% static 'image/mainimg.png' %}">
+        <div style="background-image: url('{% static 'image/background1.png' %}'); background-repeat: no-repeat; background-size: cover; padding-top: clamp(5px, 25vw, 120px); padding-bottom: clamp(5px, 25vw, 116px);">
+            <div>
+                <div style=" width: 800px; height: 340px; margin-left: 110px; background-color: black; margin-top: clamp(5px, 25vw, 45px); padding-top: clamp(5px, 25vw, 45px);
+                    padding-bottom: clamp(5px, 25vw, 45px);">
+                    <h5 style=" margin: 25px 105px; font-family: Kamerik105Cyrillic-Heavy; font-size:3.4vw; color: #F8F8F8; font-size-adjust:auto; text-align: left;
+                              -webkit-text-stroke-width: 0.25px;
+                                -webkit-text-stroke-color: #F8F8F8; ">
+                    Design Laboratory</h5>
+                    <p class="textmain" style=" margin: -15px 105px; text-align: left; color: #F8F8F8; font-size:1.272vw;">платформа инструментов для дизайна</p>
+                    <form style="margin: 50px 105px;" action="">
+                        <button type="submit" class="button_main" style="font-family: Kamerik105Cyrillic-Bold; background: #000000; border: 3.4px solid #F8F8F8; padding: 11px 20px; font-size:0.92vw;">Посмотреть инструменты</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-    <div style = "
-                grid-column-start: 5;
-                grid-column-end:11;
-                padding-top: clamp(20px, 25vw, 250px);
-                padding-bottom: clamp(5px, 25vw, 45px);">
-        <div style ="">
-                    <div style ="  border-top:3px solid #000000;"></div>
+        <div style=" display: grid; column-gap: 30px; grid-template-columns: repeat(14, 1fr); background-image: url('{% static 'image/background2.png' %}'); background-repeat: no-repeat; background-size: cover; padding-top: clamp(5px, 25vw, 120px); padding-bottom: clamp(5px, 25vw, 116px);">
+        <div class="textmain" style="grid-column-start: 3;
+                    grid-column-end:9; text-align: left;">
+            С появлением искусственного интеллекта художникам стало легче
+            выражать себя. Многие существующие пакеты программного обеспечения
+            для дизайнеров начинают включать некоторые элементарные ИИ,
+            помогающие автоматизировать простые повторяющиеся действия.
+            Данная платформа объединяет в себе множество  популярных инструментов
+            дизайна, которые могут успешно применить дизайнеры из
+            разных областей.
         </div>
-    </div>
-    <div style = " grid-column-start: 4;
-                grid-column-end:12;
-                align-items: center;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;">
-        <div class = "textmain">
-                С появлением ИИ художникам стало легче выражать себя.
-            Многие существующие пакеты программного обеспечения для дизайнеров начинают включать некоторые элементарные ИИ,
-            помогающие автоматизировать простые повторяющиеся действия.<br /><br />
-            Данный проект собрал в себе популярные инструменты дизайна, которые могут успешно применить дизайнеры из разных областей.
+            <div class="textmain" style="grid-column-start: 10;
+                    grid-column-end:13; text-align: left;">
+                <img src="{% static 'image/icons.png' %}">
+            </div>
         </div>
-    </div>
-    <div style = "grid-column-start: 5;
-                grid-column-end:11;
-                padding-top: clamp(5px, 25vw, 45px);;
-                padding-bottom: clamp(20px, 25vw, 250px)">
-        <div>
-            <div style ="border-top:2px solid #000000;"></div>
-        </div>
-    </div>
-    <div style = " grid-column-start: 2;
-                grid-column-end:7;
-                align-items: center;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;">
-        <div class = "textmain">
-                Чтобы сгенерировать картинку, нужно просто написать запрос и нажать на кнопку сгенерировать.
-        </div>
-    </div>
-     <div style = " grid-column-start: 8;
-                grid-column-end:14;
-                align-items: center;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;">
-        <div >
-                <img src="{% static 'image/mainimg.png' %}">
-        </div>
-    </div>
-     <div style = " grid-column-start: 2;
-                grid-column-end:8;
-                padding-top: clamp(20px, 25vw, 150px);
-                align-items: center;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;">
-        <div >
-                <img src="{% static 'image/mainimg.png' %}">
-        </div>
-    </div>
-    <div style = " grid-column-start: 9;
-                grid-column-end:14;
-                padding-top: clamp(20px, 25vw, 150px);
-                align-items: center;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;">
-        <div class = "textmain">
-                Также можно выбрать дополнительные настройки. Подробнее ознакомиться как их использовать можно в разделе Помощь.
-        </div>
-    </div>
+            <div style="display: grid; column-gap: 30px; grid-template-columns: repeat(14, 1fr); background-color: black;">
+                <div style="grid-column-start: 1; grid-column-end:15; display: flex; align-items: center;">
+                    <div style="display: flex;">
+                <div style=" margin-top: 100px; margin-left: 270px; font-family:
+            Kamerik105Cyrillic-Bold; font-size: 1.8vw; text-align: center; color:
+            #F8F8F8; padding-bottom: 10px; border-bottom: 2px solid #F8F8F8;">Общая инструкция по использованию инструментов дизайна</div>
+                    </div>
+                    </div>
+<!--                <div style=" display: flex;  align-content: space-between;  ">-->
+<!--                    <div style=" grid-column-start:3; grid-column-end:13;">-->
+<!--                        <div style=" display: flex;  align-content: space-between;">-->
+<!--                    <div style=" font-family: Kamerik105Cyrillic-Book; font-size: 5.3vw; color: #F8F8F8; ">1</div>-->
+<!--                    <div class="textmain" style=" text-align: left; color: #F8F8F8; line-height: 165%;">Чтобы получить результат нужно ввести запрос или загрузить картинку</div>-->
+<!--                    <div style="  border-bottom: 2px solid #F8F8F8;"></div>-->
+<!--                    </div>-->
+<!--                        </div>-->
+                    <div style=" margin-top: 200px; grid-column-start:3; grid-column-end:3; font-family: Kamerik105Cyrillic-Book; font-size: 5.3vw; color: #F8F8F8; ">1</div>
+                    <div class="textmain" style=" margin-top: 202px; grid-column-start:4; grid-column-end:7; text-align: left; color: #F8F8F8; line-height: 165%;">Чтобы получить результат нужно ввести запрос или загрузить картинку</div>
+                    <div style=" grid-column-start:3; grid-column-end:7; border-bottom: 3px solid #F8F8F8;"></div>
+                    <div style="margin-top: 50px; grid-column-start:3; grid-column-end:3; font-family: Kamerik105Cyrillic-Book; font-size: 5.3vw; color: #F8F8F8;">2</div>
+                    <div class="textmain" style=" margin-top: 68px; grid-column-start:4; grid-column-end:7; text-align: left; color: #F8F8F8; line-height: 165%;">Далее следует нажать на кнопку «Сгенерировать»</div>
+                    <div style=" grid-column-start:3; grid-column-end:7; border-bottom: 3px solid #F8F8F8;"></div>
+                    <div style=" grid-column-start:3; grid-column-end:7;"></div>
+                    <div style="margin-top: -275px; grid-column-start:8; grid-column-end:13;"><img src="{% static 'image/instruction1.png' %}"></div>
 
-     <div style = "grid-column-start: 5;
-                grid-column-end:11;
-                padding-top: clamp(20px, 25vw, 150px);">
-        <div>
-            <div style ="border-top:3px solid #000000;"></div>
-        </div>
-    </div>
-     <div style = " grid-column-start: 4;
-                grid-column-end:12;
-                padding-top: clamp(20px, 25vw, 50px);
-                align-items: center;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;">
-        <div class = "textmain">
-                Создайте самые креативные картинки!
-        </div>
-    </div>
+
+                    <div style=" margin-top: 120px; grid-column-start:9; grid-column-end:9; font-family: Kamerik105Cyrillic-Book; font-size: 5.3vw; color: #F8F8F8; ">3</div>
+                    <div class="textmain" style=" margin-top: 122px; grid-column-start:10; grid-column-end:13; text-align: left; color: #F8F8F8; line-height: 165%;">Для улучшения результата, можно воспользоваться дополнительными настройками</div>
+                    <div style=" grid-column-start:9; grid-column-end:13; border-bottom: 3px solid #F8F8F8;"></div>
+                    <div style="margin-top: 50px; grid-column-start:9; grid-column-end:9; font-family: Kamerik105Cyrillic-Book; font-size: 5.3vw; color: #F8F8F8;">4</div>
+                    <div class="textmain" style=" margin-top: 68px; grid-column-start:10; grid-column-end:13; text-align: left; color: #F8F8F8; line-height: 165%;">Создавайте самые креативные картинки!</div>
+                    <div style=" grid-column-start:9; grid-column-end:13; border-bottom: 3px solid #F8F8F8;"></div>
+                    <div style=" grid-column-start:9; grid-column-end:13;"></div>
+                    <div style="margin-top: -280px; grid-column-start:3; grid-column-end:8;"><img src="{% static 'image/instruction2.png' %}"></div>
+
+
+
+            </div>
+</div>
+
 {% endblock %}

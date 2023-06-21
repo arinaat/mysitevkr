@@ -5,67 +5,33 @@
 {% block title %}Перенос стиля{% endblock %}
 {% block content %}
 
-
-<script>
-$(document).ready(function(event){
-$(document).on('click', '#like', function(event){
-    event.preventDefault()
-    const handleSubmit = event => {
-      event.preventDefault();
-      const formData2 = new FormData();
-      formData2.append(
-        content_image,
-        style_image,
-      );
-
-    const requestOptions = {
-        method: 'POST',
-        //headers: { 'Content-Type': 'multipart/form-data' }, // DO NOT INCLUDE HEADERS
-        data: formData2
-    };
-      fetch('http://127.0.0.1:8080/proba/', requestOptions)
-        .then(response => response.json())
-        .then(function (response) {
-          console.log('response')
-          console.log(response)
-            });
-    }
-
-})
-});
-</script>
-
-
-
-<form enctype="multipart/form-data" method="post" action="http://127.0.0.1:8080/proba/">
-   <input type="file" id="content_image" name="uploaded_file1">
-   <input type="file" id="style_image" name="uploaded_file2">
+<form id="formImg">
+    <input type="file" id="content_image" name="uploaded_file1" accept="image/jpeg,image/png">
+    <input type="file" id="style_image" name="uploaded_file2" accept="image/jpeg,image/png">
     {% csrf_token %}
-   <input type="submit" id="generate" value="Сгенерировать">
-  </form>
-
+    <input type="submit" id="generate" value="Сгенерировать">
+</form>
 
 <script>
-const img1 = document.getElementById('content_image');
+formImg.onsubmit = async (e) => {
+    e.preventDefault();
 
-img1.addEventListener('change', (event) => {
-    const image = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.addEventListener('load', () => {
-        localStorage.setItem('content_image', reader.result);
+    let response = await fetch('http://127.0.0.1:8080/proba/', {
+        method: 'POST',
+        body: new FormData(formImg)
     });
-});
 
-const img2 = document.getElementById('style_image');
-img2.addEventListener('change', (event) => {
-    const image = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.addEventListener('load', () => {
-        localStorage.setItem('style_image', reader.result);
-    });
-});
+    let result = await response.blob();
 
+    let outputImg = document.createElement('img');
+    outputImg.src = URL.createObjectURL(result);
+
+    document.body.appendChild(outputImg);
+};
 </script>
+
+
+
+
+
 {% endblock %}

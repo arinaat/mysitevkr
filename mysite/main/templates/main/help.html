@@ -1,56 +1,83 @@
 {% extends 'main/layout.html' %}
 {% load static %}
+{% block script %}<script src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous"></script>
+   {% endblock %}
 {% block title %}Главная{% endblock %}
 {% block content %}
-<div style = "grid-column-start: 3;
-                grid-column-end:13;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;">
-    <h1 style="padding-top: clamp(20px, 25vw, 150px);">Популярные вопросы</h1>
-    <h5 style="padding-top: clamp(25px, 25vw, 209px);">Как формулировать запросы для нейросети?</h5>
-    <div class = "textmain" style="padding-top: clamp(10px, 25vw, 50px);">
-    Необходимо тестировать разные комбинации слов в запросе, при этом стоит учитывать,
+
+<div style="display: flex; grid-column-start:4; grid-column-end:11;">
+    <div style=" font-family: Kamerik105Cyrillic-Bold; font-size: 3vw;  padding-bottom: 6px; border-bottom: 4px solid #000000; margin-top: 160px; margin-left: 150px;">Популярные вопросы</div>
+    </div>
+
+<div style = "grid-column-start: 4;
+                grid-column-end:12;
+                ">
+
+<div class="accordion">
+    <div class="accordion-item">
+        <div class="accordion-item__trigger" >
+           <div>Как формулировать запросы для нейросети?</div>
+            <div><img class="tr" style="width: 20px;" src="{% static 'image/helpimg1.png' %}"></div>
+        </div>
+        <div class="accordion-item__content">
+            Необходимо тестировать разные комбинации слов в запросе, при этом стоит учитывать,
     что некоторые слова в запросе могут по умолчанию сильнее менять изображение или смешивать его с объектом.
     Другими словами, вы должны как можно точнее сформулировать главный объект и указать его взапросе.
     Также следует избегать слов «не», «без», «исключая», «кроме» и подобных.
     Нейросети воспринимают всё буквально и не замечают отрицательных частиц.
         </div>
-   <div style = "grid-column-start: 5;
-                grid-column-end:11;
-                padding-top: clamp(10px, 25vw, 50px);">
-        <div>
-    <div style ="border-top:2px solid #000000;"></div>
-            </div>
+    </div>
+    <div style="border-bottom: 2px solid black;"></div>
+    <div class="accordion-item">
+        <div class="accordion-item__trigger">
+            <div>Для чего нужны дополнительные параметры?</div>
+            <div><img class="tr" style="width: 20px;" src="{% static 'image/helpimg1.png' %}"></div>
         </div>
-    <h5 style="padding-top: clamp(10px, 25vw, 50px);">Для чего нужны дополнительные параметры?</h5>
-    <div class = "textmain" style="padding-top: clamp(10px, 25vw, 50px);">
-    В большинстве нейросетей есть дополнительные параметры, которые могут улучшить конечный результат.
-    В каждой нейросети они разные. Например, можно выбрать размер генерируемого изображения.
+        <div class="accordion-item__content">
+            В большинстве нейросетей есть дополнительные параметры, которые могут улучшить конечный результат.
+            В каждой нейросети они разные. Например, можно выбрать размер генерируемого изображения.
         </div>
-    <div style = "grid-column-start: 5;
-                grid-column-end:11;
-                padding-top: clamp(10px, 25vw, 50px);">
-        <div>
-    <div style ="border-top:2px solid #000000;"></div>
-            </div>
+    </div>
+    <div style="border-bottom: 2px solid black;"></div>
+    <div class="accordion-item">
+        <div class="accordion-item__trigger">
+            <div>Вас не удовлетворяет результат?</div>
+            <div><img class="tr" style="width: 20px;" src="{% static 'image/helpimg1.png' %}"></div>
         </div>
-    <h5 style="padding-top: clamp(10px, 25vw, 50px);">Вас не удовлетворяет результат?</h5>
-    <div class = "textmain" style="padding-top: clamp(10px, 25vw, 50px);">
-    Попробуйте сгенерировать картинки несколько раз.
-        При каждом новом запуске получаются новые изображение. Либо попробуйте изменить запрос.
+        <div class="accordion-item__content">
+            Попробуйте сгенерировать картинки несколько раз. При каждом новом запуске получаются новые изображение.
+            Либо попробуйте изменить запрос.
         </div>
-     <div style = "grid-column-start: 5;
-                grid-column-end:11;
-                padding-top: clamp(10px, 25vw, 50px);">
-        <div>
-    <div style ="border-top:2px solid #000000;"></div>
-            </div>
+    </div>
+    <div style="border-bottom: 2px solid black;"></div>
+    <div class="accordion-item">
+        <div class="accordion-item__trigger">
+            <div>Можно ли ожидать больше инструментов?</div
+            ><div><img class="tr" style="width: 20px;" src="{% static 'image/helpimg1.png' %}"></div>
         </div>
-    <h5 style="padding-top: clamp(10px, 25vw, 50px);">Можно ли ожидать больше инструментов?</h5>
-    <div class = "textmain" style="padding-top: clamp(10px, 25vw, 50px);">
-    Конечно! Мы работаем над этим.
+        <div class="accordion-item__content">
+            Конечно! Мы работаем над этим.
         </div>
+    </div>
+    <div style="border-bottom: 2px solid black;"></div>
 </div>
+
+
+
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.accordion-item__trigger').click(function(){
+            $(this).next('.accordion-item__content').slideToggle();
+            var url_img = "{% static 'image/helpimg2.png' %}";
+            $(this).next('.tr').attr("src",url_img);
+        });
+    });
+</script>
+
 {% endblock %}
 
